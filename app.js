@@ -56,12 +56,12 @@ const http = require("http").createServer();
 // const server = require('http').createServer(app)
 const io = require("socket.io")(http,{
   cors: {
-    origin: 'https://621903d3eea8d518b6fca4d1--wizardly-pare-1aac75.netlify.app/',
+    origin: '*',
   }}
   );
 // const io = require('socket.io')(server)
 
-const port = process.env.PORT;
+const port = process.env.PORT||3001;
 http.listen(port, () => {
   console.log("s Is Running Port: " + port);
 });
