@@ -61,7 +61,7 @@ const io = require("socket.io")(http,{
   );
 // const io = require('socket.io')(server)
 
-const port = process.env.PORT||3001;
+const port = 3001;
 http.listen(port, () => {
   console.log("s Is Running Port: " + port);
 });
