@@ -56,7 +56,7 @@ const http = require("http").createServer();
 // const server = require('http').createServer(app)
 const io = require("socket.io")(http,{
   cors: {
-    origin: '*',
+    origin: 'https://62193dc3bdcfe9227df61590--flamboyant-visvesvaraya-de5c91.netlify.app/',
   }}
   );
 // const io = require('socket.io')(server)
