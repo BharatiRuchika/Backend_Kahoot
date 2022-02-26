@@ -332,7 +332,7 @@ app.use('/quiz', addQuizRouter);
 app.use('/quizquestions',quizQuestionsRouter);
 // catch 404 and forward to error handler
 console.log("port",process.env.HTTP_PORT)
-httpServer.listen(process.env.HTTP_PORT||3001, () => {
+httpServer.listen(process.env.PORT || 3001, () => {
   console.log("s Is Running Port: " + process.env.HTTP_PORT);
 });
 app.use(function(req, res, next) {
