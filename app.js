@@ -1,4 +1,4 @@
-require('dotenv').config({ path: './config.env' })
+require('dotenv').config()
 
 const express = require('express')
     ,session = require('express-session')
@@ -331,9 +331,11 @@ app.use((req,res,next)=>{
 app.use('/quiz', addQuizRouter);
 app.use('/quizquestions',quizQuestionsRouter);
 // catch 404 and forward to error handler
-console.log("port",process.env.HTTP_PORT)
-httpServer.listen(process.env.PORT || 3001, () => {
-  console.log("s Is Running Port: " + process.env.HTTP_PORT);
+//console.log("port",process.env.HTTP_PORT)
+const PORT = process.env.PORT||3001;
+console.log(PORT)
+httpServer.listen(PORT, () => {
+ console.log("s Is Running Port: " + PORT);
 });
 app.use(function(req, res, next) {
   next(createError(404));
