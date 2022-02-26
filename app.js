@@ -57,13 +57,13 @@ const {Server} = require("socket.io");
 const httpServer = createServer(app);
 // const srver = require('http').createServer(app)
 app.use(cors({
-  origin: "https://62193dc3bdcfe9227df61590--flamboyant-visvesvaraya-de5c91.netlify.app/",
+  origin: "https://62193dc3bdcfe9227df61590--flamboyant-visvesvaraya-de5c91.netlify.app",
   credentials:true,
   optionSuccessStatus:200
 }));
 const io = new Server(httpServer,{
   cors: {
-    origin: 'https://62193dc3bdcfe9227df61590--flamboyant-visvesvaraya-de5c91.netlify.app/',
+    origin: 'https://62193dc3bdcfe9227df61590--flamboyant-visvesvaraya-de5c91.netlify.app',
     credentials:true,      
     optionSuccessStatus:200
 
