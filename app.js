@@ -56,6 +56,9 @@ const  {createServer}  = require("http");
 const {Server} = require("socket.io");
 const httpServer = createServer(app);
 // const srver = require('http').createServer(app)
+app.use(cors({
+  origin: "https://62193dc3bdcfe9227df61590--flamboyant-visvesvaraya-de5c91.netlify.app/"
+}));
 const io = new Server(httpServer,{
   cors: {
     origin: 'https://62193dc3bdcfe9227df61590--flamboyant-visvesvaraya-de5c91.netlify.app/',
@@ -65,9 +68,7 @@ const io = new Server(httpServer,{
 
 // const port =24257;
 
-app.use(cors({
-  origin: "https://62193dc3bdcfe9227df61590--flamboyant-visvesvaraya-de5c91.netlify.app/"
-}));
+
 const users = {};
 var clients = {};
 var hosts={};
