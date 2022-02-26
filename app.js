@@ -52,19 +52,22 @@ app.use(function (req, res, next) {
   next();
 });
 // const port = process.env.PORT;
-const http = require("http").createServer();
-// const server = require('http').createServer(app)
-const io = require("socket.io")(http,{
+const  {createServer}  = require("http");
+const {Server} = require("socket.io");
+const httpServer = createServer(app);
+// const srver = require('http').createServer(app)
+const io = new Server(httpServer,{
   cors: {
     origin: 'https://62193dc3bdcfe9227df61590--flamboyant-visvesvaraya-de5c91.netlify.app/',
   }}
   );
 // const io = require('socket.io')(server)
 
-const port =24257;
-http.listen(port, () => {
-  console.log("s Is Running Port: " + port);
-});
+// const port =24257;
+
+app.use(cors({
+  origin: "https://62193dc3bdcfe9227df61590--flamboyant-visvesvaraya-de5c91.netlify.app/"
+}));
 const users = {};
 var clients = {};
 var hosts={};
@@ -322,6 +325,9 @@ app.use((req,res,next)=>{
 app.use('/quiz', addQuizRouter);
 app.use('/quizquestions',quizQuestionsRouter);
 // catch 404 and forward to error handler
+httpServer.listen(process.env.PORT||3001, () => {
+  console.log("s Is Running Port: " + process.env.PORT);
+});
 app.use(function(req, res, next) {
   next(createError(404));
 });
