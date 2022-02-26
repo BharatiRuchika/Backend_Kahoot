@@ -41,13 +41,13 @@ const { Socket } = require('socket.io');
 mongo.connect();
 
 var app = express();
-app.use(cors({   origin: true,   credentials: true }))
+// app.use(cors({   origin: true,   credentials: true }))
 // app.use(cors({ credentials: true }));
 // const socket = require('socket.io');
 app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', "*");
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type Accept');
   res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
@@ -57,11 +57,16 @@ const {Server} = require("socket.io");
 const httpServer = createServer(app);
 // const srver = require('http').createServer(app)
 app.use(cors({
-  origin: "https://62193dc3bdcfe9227df61590--flamboyant-visvesvaraya-de5c91.netlify.app/"
+  origin: "https://62193dc3bdcfe9227df61590--flamboyant-visvesvaraya-de5c91.netlify.app/",
+  credentials:true,
+  optionSuccessStatus:200
 }));
 const io = new Server(httpServer,{
   cors: {
     origin: 'https://62193dc3bdcfe9227df61590--flamboyant-visvesvaraya-de5c91.netlify.app/',
+    credentials:true,      
+    optionSuccessStatus:200
+
   }}
   );
 // const io = require('socket.io')(server)
